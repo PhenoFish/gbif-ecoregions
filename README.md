@@ -3,6 +3,10 @@
 # gbif-ecoregions
 
 <!-- badges: start -->
+
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
+[![Dependencies](https://img.shields.io/badge/dependencies-2/95-green?style=flat)](#)
 <!-- badges: end -->
 
 Research Compendium of the project **{{ PLEASE ADD A FEW WORDS }}**

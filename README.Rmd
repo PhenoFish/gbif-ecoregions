@@ -18,6 +18,8 @@ knitr::opts_chunk$set(collapse  = TRUE,
 
 
 <!-- badges: start -->
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
+[![Dependencies](https://img.shields.io/badge/dependencies-2/95-green?style=flat)](#)
 <!-- badges: end -->
 
 
