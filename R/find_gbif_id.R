@@ -4,7 +4,7 @@
 #' Given a species binomial name, retrieves the taxonomic information of the
 #' accepted name in the GBIF database.
 #'
-#' @param species a `character` of length 1. The name of the species for search
+#' @param species a `character` of length 1. The name of the species to search
 #'   for.
 #'
 #' @return A `data.frame` with the following columns:
@@ -55,14 +55,15 @@ find_gbif_id <- function(species) {
   
   ## Parse information ----
   
-  data <- data.frame("search_terms"    = character(0), 
-                     "gbif_valid_name" = character(0), 
-                     "gbif_valid_key"  = character(0), 
-                     "gbif_phylum"     = character(0),
-                     "gbif_order"      = character(0),
-                     "gbif_family"     = character(0))
+  data <- data.frame("search_terms"       = character(0), 
+                     "gbif_accepted_name" = character(0), 
+                     "gbif_key"           = character(0), 
+                     "gbif_phylum"        = character(0),
+                     "gbif_order"         = character(0),
+                     "gbif_family"        = character(0))
   
-  if (nrow(info) > 0) {
+  
+  if (nrow(info) > 0 && ("status" %in% colnames(info))) {
     
     for (i in 1:nrow(info)) {
       
