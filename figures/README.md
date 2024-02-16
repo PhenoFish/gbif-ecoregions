@@ -1,3 +1,3 @@
-# README
+## Figure description
 
-This folder contains all your figures
+**{{ DESCRIBE FIGURES }}**

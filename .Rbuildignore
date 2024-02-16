@@ -9,3 +9,6 @@
 ^make\.R$
 ^README\.Rmd$
 ^README\.html$
+^CONTRIBUTING\.md$
+^\.github$
+^CODE_OF_CONDUCT\.md$

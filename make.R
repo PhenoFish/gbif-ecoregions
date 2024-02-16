@@ -1,23 +1,29 @@
-#' gbif-ecoregions: A Research Compendium
+#' Set up and run the entire project
 #' 
 #' @description 
-#' A paragraph providing a full description of the project and describing each 
-#' step of the workflow.
+#' Retrieve World Fish GBIF Occurrences at Ecoregion/Basin Level.
+#' Steps:
+#'   - Find GBIF accepted names & keys from Fishbase accepted names
+#'   - Get total number of occurrences per species
+#'   - Download batch of occurrences
+#'   - Clean occurrences
+#'   - Intersect occurrences w/ World Marine Ecoregions (marine)
+#'   - Intersect occurrences w/ World Freshwater Basins (terrestrial)
 #' 
 #' @author Nicolas Casajus \email{nicolas.casajus@fondationbiodiversite.fr}
 #' 
-#' @date 2023/10/12
+#' @date 2024/02/16
 
 
 
 ## Install Dependencies (listed in DESCRIPTION) ----
 
-devtools::install_deps(upgrade = "never")
+remotes::install_deps(upgrade = "never")
 
 
 ## Load Project Addins (R Functions and Packages) ----
 
-devtools::load_all(here::here())
+pkgload::load_all(here::here())
 
 
 ## Global Variables ----

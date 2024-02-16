@@ -1,3 +1,3 @@
-# README
+## Output description
 
-This folder contains all your results
+**{{ DESCRIBE OUTPUTS }}**
