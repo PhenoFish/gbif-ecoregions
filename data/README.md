@@ -36,7 +36,24 @@ To import this dataset, use the following line in R:
 meow <- sf::st_read(here::here("data", "MEOW", "meow_ecos.shp"))
 ```
 
+### `basins/`
+
+A folder containing the spatial layer of the 3,119 terrestrial drainage basins of the World defined by Tedesco _et al._ (2017) and downloaded from  [Figshare](https://figshare.com/collections/A_global_database_on_freshwater_fish_species_occurrences_in_drainage_basins/3739145). It contains the following main fields:
+
+- `BasinName`: the name of the drainage basin;
+- `Country`: the name of the country;
+- `Ecoregion`: the name of the ecoregion (Neotropic, Paleartic, etc.).
+
+This spatial layer is defined in the WGS 84 system (`EPSG = 4326`) and has been downloaded with the R function [`download_drainage_basins()`](https://github.com/phenofish/gbif-ecoregions/blob/main/R/download_drainage_basins.R).
+
+To import this dataset, use the following line in R:
+
+```r
+basins <- sf::st_read(here::here("data", "basins", "Basin042017_3119.shp"))
+```
 
 ### References
 
-Spalding MD _et al._ (2007) Marine Ecoregions of the World: A Bioregionalization of Coastal and Shelf Areas. BioScience, 57(7), 573-583. DOI: <https://doi.org/10.1641/B570707>.
+Spalding MD _et al._ (2007) Marine Ecoregions of the World: A Bioregionalization of Coastal and Shelf Areas. **BioScience**, 57(7), 573-583. DOI: <https://doi.org/10.1641/B570707>.
+
+Tedesco P _et al._ (2017) A global database on freshwater fish species occurrence in drainage basins. **Scientific Data**, 4, 170141. DOI: <https://doi.org/10.1038/sdata.2017.141>.

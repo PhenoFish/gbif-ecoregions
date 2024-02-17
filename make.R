@@ -29,6 +29,7 @@ pkgload::load_all(here::here())
 ## Download / check data ----
 
 download_marine_ecoregions()
+download_drainage_basins()
 
 
 ## Run Project ----
