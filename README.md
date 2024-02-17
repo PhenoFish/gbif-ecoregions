@@ -28,12 +28,17 @@ level for marine species and at the basin level for freshwater species.
 
 ## Data sources
 
-- Fishbase
-- GBIF
-- MEOW
-- Basin data
+This project uses the following databases:
 
-**{{ DESCRIBE ALL DATA }}**
+| Database        | Reference                 | Link                                                                                                                              |
+|-----------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Fishbase        | Froese R & Pauly D (2000) | [link](https://www.fishbase.se/)                                                                                                  |
+| GBIF            | GBIF.org (2024)           | [link](https://www.gbif.org/)                                                                                                     |
+| MEOW            | Spalding *et al.* (2007)  | [link](https://www.worldwildlife.org/publications/marine-ecoregions-of-the-world-a-bioregionalization-of-coastal-and-shelf-areas) |
+| Drainage basins | Tedesco *et al.* (2017)   | [link](https://figshare.com/collections/A_global_database_on_freshwater_fish_species_occurrences_in_drainage_basins/3739145)      |
+
+A comprehensive description of all these databases is available
+[here](https://github.com/phenofish/gbif-ecoregions/blob/main/data/README.md).
 
 ## Workflow
 
@@ -113,13 +118,16 @@ source("make.R")
 - All required packages listed in the `DESCRIPTION` file will be
   installed (if necessary)
 - All required packages and R functions will be loaded
+- Each script in `analyses/` can be run independently
 - Some analyses listed in the `make.R` might take time
 
 ## Citation
 
 Please use the following citation:
 
-> **{{ ADD A CITATION }}**
+> Casajus N & Loiseau N (2024) A database on World fish species
+> occurrences at ecoregion and drainage basin level. URL:
+> <https://github.com/phenofish/gbif-ecoregions/>.
 
 ## Contributing
 
@@ -142,4 +150,17 @@ integrating physiology and ecology across World aquatic ecosystems.
 
 ## References
 
-**{{ OPTIONAL SECTION }}**
+Froese R & Pauly D (2000) FishBase 2000: Concepts, designs and data
+sources. ICLARM, Los Banos, Philippines. URL:
+<https://www.fishbase.se/>.
+
+GBIF.org (2024) GBIF Home Page. Available from: <https://www.gbif.org>
+\[17 February 2024\].
+
+Spalding MD *et al.* (2007) Marine Ecoregions of the World: A
+Bioregionalization of Coastal and Shelf Areas. **BioScience**, 57(7),
+573-583. DOI: <https://doi.org/10.1641/B570707>.
+
+Tedesco P *et al.* (2017) A global database on freshwater fish species
+occurrence in drainage basins. **Scientific Data**, 4, 170141. DOI:
+<https://doi.org/10.1038/sdata.2017.141>.
