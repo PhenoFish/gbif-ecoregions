@@ -71,10 +71,9 @@ This repository is structured as follow:
 - [`analyses/`](https://github.com/phenofish/gbif-ecoregions/blob/main/analyses):
   contains R scripts to run the workflow. The order to run these scripts
   is explained in the
-  [`make.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/make.R).
-  See the
-  [`README`](https://github.com/phenofish/gbif-ecoregions/blob/main/analyses/README.md)
-  for a complete description of the files.
+  [`make.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/make.R)
+  and the description of each script is available in the header of each
+  file.
 
 - [`outputs/`](https://github.com/phenofish/gbif-ecoregions/blob/main/outputs):
   contains the outputs of the project. See the

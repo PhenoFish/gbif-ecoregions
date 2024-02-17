@@ -67,25 +67,39 @@ find_gbif_id <- function(species) {
     
     for (i in 1:nrow(info)) {
       
+      gbif_d <- data.frame("gbif_accepted_name" = character(0), 
+                           "gbif_key"           = character(0), 
+                           "gbif_phylum"        = character(0),
+                           "gbif_order"         = character(0),
+                           "gbif_family"        = character(0))
+      
       if (info[i, "status"] == "ACCEPTED") {
         
-        gbif_d <- info[i, c("verbatim_name", "usageKey", "phylum", "order", 
-                            "family")]
-        
+        if (info[i, "rank"] == "SPECIES") {
+          
+          gbif_d <- info[i, c("verbatim_name", "usageKey", "phylum", "order", 
+                              "family")]
+        }
+          
       } else {
         
         info_2 <- rgbif::name_backbone(info[i, "species"], rank = "species")
         info_2 <- as.data.frame(info_2)
         
-        gbif_d <- info_2[1, c("verbatim_name", "usageKey", "phylum", "order", 
-                              "family")]
+        if (info[i, "rank"] == "SPECIES") {
+          
+          gbif_d <- info_2[1, c("verbatim_name", "usageKey", "phylum", "order", 
+                                "family")]
+        }
       }
     }
     
     colnames(gbif_d) <- c("gbif_accepted_name", "gbif_key", "gbif_phylum",
                           "gbif_order", "gbif_family")
     
-    gbif_d <- data.frame("search_terms" = species, gbif_d)
+    if (nrow(gbif_d) > 0) {
+      gbif_d <- data.frame("search_terms" = species, gbif_d)  
+    }
     
     data <- rbind(data, gbif_d)
   }
