@@ -40,7 +40,7 @@ number_of_gbif_occurrences <- function(gbif_key) {
   }
   
   
-  data <- rgbif::occ_search(taxonKey = gbif_key, limit = 0, fields = "minimal"), 
+  data <- rgbif::occ_search(taxonKey = gbif_key, limit = 0, fields = "minimal", 
                             hasCoordinate = TRUE, hasGeospatialIssue = FALSE)
   
   data.frame("gbif_key" = gbif_key,
