@@ -20,4 +20,5 @@ Imports:
     here,
     pkgload,
     remotes,
-    rgbif
+    rgbif,
+    utils

@@ -26,6 +26,11 @@ remotes::install_deps(upgrade = "never")
 pkgload::load_all(here::here())
 
 
+## Download / check data ----
+
+download_marine_ecoregions()
+
+
 ## Run Project ----
 
 source(here::here("analyses", "find_gbif_id.R"))
