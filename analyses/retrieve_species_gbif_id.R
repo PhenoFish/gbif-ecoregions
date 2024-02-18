@@ -1,7 +1,7 @@
 #' Find GBIF identifier of the Phenofish species
 #' 
 #' @description
-#' This script uses the function `find_gbif_id()` stores in the `R/` folder.
+#' This script uses the function `gbif_find_species_id()` stores in the `R/`.
 #' For 35,035 species, it takes ~ 60 mins.
 #' 
 #' Among the 35,035 species,
@@ -29,7 +29,7 @@ for (i in 1:n) {
   
   cat(paste0("Find GBIF ID - ", round(100 * i / n, 1), "%   \r"))
   
-  info <- find_gbif_id(species_list[i, "fishbase_binomial"])
+  info <- gbif_find_species_id(species_list[i, "fishbase_binomial"])
   
   gbif_ids[[length(gbif_ids) + 1]] <- info
 }

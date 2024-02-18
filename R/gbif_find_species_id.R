@@ -19,12 +19,12 @@
 #'
 #' @examples
 #' ## Accepted name ----
-#' find_gbif_id("Abalistes filamentosus")
+#' gbif_find_species_id("Abalistes filamentosus")
 #' 
 #' ## Synonym ----
-#' find_gbif_id("Abantennarius analis")
+#' gbif_find_species_id("Abantennarius analis")
 
-find_gbif_id <- function(species) {
+gbif_find_species_id <- function(species) {
   
   ## Check argument 'species' ----
   

@@ -4,11 +4,10 @@
 #' Retrieve World Fish GBIF Occurrences at Ecoregion/Basin Level.
 #' Steps:
 #'   - Find GBIF accepted names & keys from Fishbase accepted names
-#'   - Get total number of occurrences per species
-#'   - Download batch of occurrences
-#'   - Clean occurrences
-#'   - Intersect occurrences w/ World Marine Ecoregions (marine)
-#'   - Intersect occurrences w/ World Freshwater Basins (terrestrial)
+#'   - Download GBIF occurrences
+#'   - Clean and check GBIF occurrences
+#'   - Intersect occurrences w/ marine ecoregions layer (marine species)
+#'   - Intersect occurrences w/ drainage basins layer (terrestrial species)
 #' 
 #' @author Nicolas Casajus \email{nicolas.casajus@fondationbiodiversite.fr}
 #' 
@@ -34,4 +33,4 @@ download_drainage_basins()
 
 ## Run Project ----
 
-source(here::here("analyses", "find_gbif_id.R"))
+source(here::here("analyses", "retrieve_species_gbif_id.R"))

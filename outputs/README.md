@@ -18,7 +18,7 @@ A table containing taxonomic information for 35,035 species with the following c
 
 **Note:** The `gbif_*` fields can contain `NA` if the species was not found in the GBIF database. Moreover some lines can contain duplicated GBIF information if two or more original species names are considered as synonyms in the GBIF database.
 
-This table was produced by the script [`analyses/find_gbif_id.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/analyses/find_gbif_id.R)
+This table was produced by the script [`analyses/retrieve_species_gbif_id.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/analyses/retrieve_species_gbif_id.R)
 
 To import this dataset, use the following line in R:
 

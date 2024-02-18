@@ -1,3 +1,0 @@
-## Analyse description
-
-**{{ DESCRIBE ANALYSES }}**
