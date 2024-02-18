@@ -22,36 +22,40 @@ sources</a><br> • <a href="#workflow">Workflow</a><br> •
 
 ## Overview
 
-This project is dedicated to retrieve and clean GBIF occurrences for all
-fish species of the World. Occurrences are aggregated at the ecoregion
-level for marine species and at the basin level for freshwater species.
+This project is dedicated to retrieve, clean and check GBIF occurrences
+for all fish species of the World (n = 35,035 species). Occurrences are
+aggregated at the ecoregion level (Spalding *et al.*, 2007) for marine
+species and at the drainage basin level (Tedesco *et al.*, 2017) for
+freshwater species.
 
 ## Data sources
 
 This project uses the following databases:
 
-| Database        | Reference                 | Link                                                                                                                              |
-|-----------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| Fishbase        | Froese R & Pauly D (2000) | [link](https://www.fishbase.se/)                                                                                                  |
-| GBIF            | GBIF.org (2024)           | [link](https://www.gbif.org/)                                                                                                     |
-| MEOW            | Spalding *et al.* (2007)  | [link](https://www.worldwildlife.org/publications/marine-ecoregions-of-the-world-a-bioregionalization-of-coastal-and-shelf-areas) |
-| Drainage basins | Tedesco *et al.* (2017)   | [link](https://figshare.com/collections/A_global_database_on_freshwater_fish_species_occurrences_in_drainage_basins/3739145)      |
+| Database        | Usage                                        | Reference                 |                                                               Link                                                                |
+|:----------------|:---------------------------------------------|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------:|
+| Fishbase        | Get fish species accepted names              | Froese R & Pauly D (2000) |                                                 [link](https://www.fishbase.se/)                                                  |
+| GBIF            | Get fish occurrences at World scale          | GBIF.org (2024)           |                                                   [link](https://www.gbif.org/)                                                   |
+| MEOW            | Aggregate occurrences for marine species     | Spalding *et al.* (2007)  | [link](https://www.worldwildlife.org/publications/marine-ecoregions-of-the-world-a-bioregionalization-of-coastal-and-shelf-areas) |
+| Drainage basins | Aggregate occurrences for freshwater species | Tedesco *et al.* (2017)   |   [link](https://figshare.com/collections/A_global_database_on_freshwater_fish_species_occurrences_in_drainage_basins/3739145)    |
 
 A comprehensive description of all these databases is available
 [here](https://github.com/phenofish/gbif-ecoregions/blob/main/data/README.md).
 
 ## Workflow
 
-**{{ DESCRIBE THE MAIN FEATURES }}**
+The analysis pipeline follows these steps:
 
-Steps:
-
-- Find GBIF accepted names & keys from Fishbase accepted names
-- Get total number of occurrences per species
-- Download batch of occurrences
-- Clean occurrences
-- Intersect occurrences w/ World Marine Ecoregions (marine)
-- Intersect occurrences w/ World Freshwater Basins (terrestrial)
+1.  Find GBIF accepted names & identifiers from Fishbase accepted names
+2.  Download GBIF occurrences
+3.  Clean and check GBIF occurrences
+4.  Intersect occurrences w/ marine ecoregions layer (marine species)
+5.  Intersect occurrences w/ drainage basins layer (terrestrial species)
+6.  Export layers in
+    [`outputs/`](https://github.com/phenofish/gbif-ecoregions/blob/main/outputs)
+7.  Compute marine and freshwater species richness
+8.  Export barplots and maps in
+    [`figures/`](https://github.com/phenofish/gbif-ecoregions/blob/main/figures)
 
 ## Content
 
@@ -63,10 +67,10 @@ This repository is structured as follow:
 
 - [`make.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/make.R):
   main R script to set up and run the entire project. Open this file to
-  understand the workflow.
+  follow the workflow step by step.
 
 - [`R/`](https://github.com/phenofish/gbif-ecoregions/blob/main/R):
-  contains R functions developed especially for this project
+  contains R functions developed especially for this project.
 
 - [`data/`](https://github.com/phenofish/gbif-ecoregions/blob/main/data):
   contains raw data used in this project. See the
@@ -115,11 +119,16 @@ source("make.R")
 
 **Notes**
 
-- All required packages listed in the `DESCRIPTION` file will be
-  installed (if necessary)
+- All required packages listed in the
+  [`DESCRIPTION`](https://github.com/phenofish/gbif-ecoregions/blob/main/DESCRIPTION)
+  file will be installed (if necessary)
 - All required packages and R functions will be loaded
-- Each script in `analyses/` can be run independently
-- Some analyses listed in the `make.R` might take time
+- Each script in
+  [`analyses/`](https://github.com/phenofish/gbif-ecoregions/blob/main/analyses)
+  can be run independently
+- Some steps listed in the
+  [`make.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/make.R)
+  might take time (days and days)
 
 ## Citation
 
