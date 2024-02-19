@@ -52,6 +52,18 @@ To import this dataset, use the following line in R:
 basins <- sf::st_read(here::here("data", "basins", "Basin042017_3119.shp"))
 ```
 
+
+### `gbif/gbif_requests_keys.csv`
+
+A table containing metadata of GBIF occurrence downloads w/ the link to download raw occurrences (`downloadLink`) and the DOI to cite the dataset (`doi`).
+
+To import this dataset, use the following line in R:
+
+```r
+gbif <- read.csv(here::here("data", "gbif", "gbif_requests_keys.csv"))
+```
+
+
 ### References
 
 Spalding MD _et al._ (2007) Marine Ecoregions of the World: A Bioregionalization of Coastal and Shelf Areas. **BioScience**, 57(7), 573-583. DOI: <https://doi.org/10.1641/B570707>.

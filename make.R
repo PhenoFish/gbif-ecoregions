@@ -25,7 +25,7 @@ remotes::install_deps(upgrade = "never")
 pkgload::load_all(here::here())
 
 
-## Download / check data ----
+## Download data (if required) ----
 
 download_marine_ecoregions()
 download_drainage_basins()
@@ -34,3 +34,5 @@ download_drainage_basins()
 ## Run Project ----
 
 source(here::here("analyses", "retrieve_species_gbif_id.R"))
+source(here::here("analyses", "download_gbif_occurrences.R"))
+
