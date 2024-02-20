@@ -35,4 +35,4 @@ download_drainage_basins()
 
 source(here::here("analyses", "retrieve_species_gbif_id.R"))
 source(here::here("analyses", "download_gbif_occurrences.R"))
-
+source(here::here("analyses", "clean_gbif_occurrences.R"))

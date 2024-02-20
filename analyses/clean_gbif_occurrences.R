@@ -1,9 +1,29 @@
+#' Clean GBIF occurrences
+#' 
+#' @description
+#' This script imports and cleans GBIF occurrences. Filters are:
+#' - Keep only occurrences w/ a `taxonRank` equal to `"SPECIES"`.
+#' - Keep only occurrences w/ a `basisOfRecord` equal to `"HUMAN_OBSERVATION"`, 
+#'   `"OCCURRENCE"`, `"OBSERVATION"`, or `"MACHINE_OBSERVATION"`.
+#' - Keep only occurrences w/ a `occurrenceStatus` equal to `"PRESENT"`.
+#' - Keep only occurrences w/ non empty and non erroneous 
+#'   `geographical coordinates`.
+#' 
+#' The `.rds` files are exported in the `data/gbif/` folder (untracked by Git). 
+
+
+## Import GBIF downloads ZIP metadata ----
+
 downloads_info <- read.csv(here::here("data", "gbif", "gbif_requests_keys.csv"))
 
-for (i in 20:nrow(downloads_info)) {
+
+for (i in 1:nrow(downloads_info)) {
 
   cat(paste0("Clean GBIF file - ", round(100 * i / nrow(downloads_info), 1), 
              "%   \r"))
+  
+  
+  ## Import GBIF occurrences ----
   
   tab <- rgbif::occ_download_import(key   = downloads_info[i, "download_key"], 
                                     path  = here::here("data", "gbif"))
