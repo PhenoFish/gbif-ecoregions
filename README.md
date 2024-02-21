@@ -41,6 +41,7 @@ This project uses the following databases:
 | GBIF            | Get fish occurrences at World scale          | GBIF.org (2024)           |                                                   [link](https://www.gbif.org/)                                                   |
 | MEOW            | Aggregate occurrences for marine species     | Spalding *et al.* (2007)  | [link](https://www.worldwildlife.org/publications/marine-ecoregions-of-the-world-a-bioregionalization-of-coastal-and-shelf-areas) |
 | Drainage basins | Aggregate occurrences for freshwater species | Tedesco *et al.* (2017)   |   [link](https://figshare.com/collections/A_global_database_on_freshwater_fish_species_occurrences_in_drainage_basins/3739145)    |
+| Natural Earth   | World maps                                   | None                      |                                             [link](https://www.naturalearthdata.com)                                              |
 
 A comprehensive description of all these databases is available
 [here](https://github.com/phenofish/gbif-ecoregions/blob/main/data/README.md).
@@ -57,7 +58,7 @@ The analysis pipeline follows these steps:
 6.  Export layers in
     [`outputs/`](https://github.com/phenofish/gbif-ecoregions/blob/main/outputs)
 7.  Compute marine and freshwater species richness
-8.  Export barplots and maps in
+8.  Export World maps in
     [`figures/`](https://github.com/phenofish/gbif-ecoregions/blob/main/figures)
 
 ## Content
@@ -93,10 +94,7 @@ This repository is structured as follow:
   for a complete description of the files.
 
 - [`figures/`](https://github.com/phenofish/gbif-ecoregions/blob/main/figures):
-  contains the figures used to validate et visualize the outputs. See
-  the
-  [`README`](https://github.com/phenofish/gbif-ecoregions/blob/main/figures/README.md)
-  for a complete description of the figures.
+  contains the figures used to validate et visualize the outputs.
 
 ## Installation
 
@@ -131,7 +129,7 @@ source("make.R")
   can be run independently
 - Some steps listed in the
   [`make.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/make.R)
-  might take time (days and days)
+  might take time (several hours)
 
 ## Citation
 

@@ -54,6 +54,7 @@ This project uses the following databases:
 | GBIF            | Get fish occurrences at World scale          | GBIF.org (2024)           | [link](https://www.gbif.org/)    |
 | MEOW            | Aggregate occurrences for marine species     | Spalding _et al._ (2007)  | [link](https://www.worldwildlife.org/publications/marine-ecoregions-of-the-world-a-bioregionalization-of-coastal-and-shelf-areas) |
 | Drainage basins | Aggregate occurrences for freshwater species | Tedesco _et al._ (2017)   | [link](https://figshare.com/collections/A_global_database_on_freshwater_fish_species_occurrences_in_drainage_basins/3739145) |
+| Natural Earth        | World maps             | None | [link](https://www.naturalearthdata.com) |
 
 A comprehensive description of all these databases is available [here](https://github.com/phenofish/gbif-ecoregions/blob/main/data/README.md).
 
@@ -70,7 +71,7 @@ The analysis pipeline follows these steps:
 5. Intersect occurrences w/ drainage basins layer (terrestrial species)
 6. Export layers in [`outputs/`](https://github.com/phenofish/gbif-ecoregions/blob/main/outputs)
 7. Compute marine and freshwater species richness
-8. Export barplots and maps in [`figures/`](https://github.com/phenofish/gbif-ecoregions/blob/main/figures)
+8. Export World maps in [`figures/`](https://github.com/phenofish/gbif-ecoregions/blob/main/figures)
 
 
 ## Content
@@ -89,7 +90,7 @@ This repository is structured as follow:
 
 - [`outputs/`](https://github.com/phenofish/gbif-ecoregions/blob/main/outputs): contains the outputs of the project. See the [`README`](https://github.com/phenofish/gbif-ecoregions/blob/main/outputs/README.md) for a complete description of the files.
 
-- [`figures/`](https://github.com/phenofish/gbif-ecoregions/blob/main/figures): contains the figures used to validate et visualize the outputs. See the [`README`](https://github.com/phenofish/gbif-ecoregions/blob/main/figures/README.md) for a complete description of the figures.
+- [`figures/`](https://github.com/phenofish/gbif-ecoregions/blob/main/figures): contains the figures used to validate et visualize the outputs.
 
 
 
@@ -120,7 +121,7 @@ source("make.R")
 - All required packages listed in the [`DESCRIPTION`](https://github.com/phenofish/gbif-ecoregions/blob/main/DESCRIPTION) file will be installed (if necessary)
 - All required packages and R functions will be loaded
 - Each script in [`analyses/`](https://github.com/phenofish/gbif-ecoregions/blob/main/analyses) can be run independently
-- Some steps listed in the [`make.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/make.R) might take time (days and days)
+- Some steps listed in the [`make.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/make.R) might take time (several hours)
 
 
 
