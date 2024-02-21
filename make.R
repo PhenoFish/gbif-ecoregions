@@ -37,9 +37,4 @@ source(here::here("analyses", "retrieve_species_gbif_id.R"))
 source(here::here("analyses", "download_gbif_occurrences.R"))
 source(here::here("analyses", "clean_gbif_occurrences.R"))
 source(here::here("analyses", "intersect_gbif_occurrences_marine.R"))
-
-
-## Make richness maps ----
-
-ggmap_marine()
-ggmap_freshwater()
+source(here::here("analyses", "compute_species_richness.R"))

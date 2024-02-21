@@ -1,3 +1,26 @@
+#' Intersect GBIF occurrences w/ ecoregions and drainage basins layers
+#' 
+#' @description
+#' The final `data.frame` for marine ecoregions (`species_ecoregions`) contain 
+#' two columns:
+#' - `gbif_key`: the GBIF identifier of the species;
+#' - `ECO_CODE`: the identifier of the marine ecoregion in MEOW.
+#' 
+#' The field `ECO_CODE` can be used to merge this `data.frame` w/ the marine 
+#' ecoregions layer (MEOW).
+#' 
+#' The final `data.frame` for drainage basins (`species_basins`) contain 
+#' two columns:
+#' - `gbif_key`: the GBIF identifier of the species;
+#' - `BasinName`: the name of the drainage basin.
+#' 
+#' The field `BasinName` can be used to merge this `data.frame` w/ the drainage
+#' basins layer.
+#' 
+#' The `.rds` files are exported in the `outputs/` folder as 
+#' `phenofish_species_marine_ecoregions.rds` and
+#' `phenofish_species_drainage_basins.rds`.
+
 
 ## Import GBIF downloads metadata ----
 
@@ -9,11 +32,13 @@ downloads_info <- read.csv(here::here("data", "gbif", "gbif_requests_keys.csv"))
 meow <- sf::st_read(here::here("data", "MEOW", "meow_ecos.shp"))
 
 
-
 ## Import drainage basins layer ----
 
 basins <- sf::st_read(here::here("data", "basins", "Basin042017_3119.shp"))
 basins <- sf::st_make_valid(basins)
+
+
+## Intersections ----
 
 species_ecoregions <- data.frame()
 species_basins     <- data.frame()
@@ -76,7 +101,6 @@ for (i in 1:nrow(downloads_info)) {
 }
 
 
-
 ## Export tables ----
 
 saveRDS(species_ecoregions, here::here("outputs", 
@@ -84,45 +108,3 @@ saveRDS(species_ecoregions, here::here("outputs",
 
 saveRDS(species_basins, here::here("outputs", 
                                    "phenofish_species_drainage_basins.rds"))
-
-
-## Compute species richness ----
-
-ecoregions_richness <- tapply(species_ecoregions$"gbif_key", 
-                              species_ecoregions$"ECO_CODE", 
-                              function(x) length(unique(x)))
-
-ecoregions_richness <- data.frame("ECO_CODE" = names(ecoregions_richness),
-                                  "richness" = ecoregions_richness,
-                                  row.names  = NULL)
-
-basins_richness <- tapply(species_basins$"gbif_key", 
-                          species_basins$"BasinName", 
-                          function(x) length(unique(x)))
-
-basins_richness <- data.frame("BasinName" = names(basins_richness),
-                              "richness"  = basins_richness,
-                              row.names   = NULL)
-
-
-
-## Add data to spatial layers ----
-
-meow   <- merge(meow, ecoregions_richness, by = "ECO_CODE", all = TRUE)
-basins <- merge(basins, basins_richness, by = "BasinName", all = TRUE)
-
-meow$"richness"   <- ifelse(is.na(meow$"richness"), 0, meow$"richness")
-basins$"richness" <- ifelse(is.na(basins$"richness"), 0, basins$"richness")
-
-
-## Select fields ----
-
-meow   <- meow[ , c("ECO_CODE", "ECOREGION", "richness")]
-basins <- basins[ , c("BasinName", "richness")]
-
-
-## Export richness layers ----
-
-sf::st_write(meow, here::here("outputs", "phenofish_marine_richness.gpkg"))
-sf::st_write(basins, here::here("outputs", "phenofish_freshwater_richness.gpkg"))
-
