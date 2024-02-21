@@ -64,6 +64,24 @@ gbif <- read.csv(here::here("data", "gbif", "gbif_requests_keys.csv"))
 ```
 
 
+### `basemap/`
+
+A folder containing [Natural Earth](https://www.naturalearthdata.com/) spatial layers used by the functions [`ggmap_marine()`](https://github.com/phenofish/gbif-ecoregions/blob/main/R/ggmap_marine.R) and [`ggmap_freshwater()`](https://github.com/phenofish/gbif-ecoregions/blob/main/R/ggmap_freshwater.R) to add World layers when mapping data. It contains these following layers:
+
+- `ne_countries.gpkg`: World country boundaries;
+- `ne_oceans.gpkg`: World oceans;
+- `ne_graticules.gpkg`: World graticules;
+- `ne_bbox.gpkg`: World bounding box;
+
+All these layers are defined in the Robinson CRS.
+
+To import the `ne_countries` layer, use the following line in R:
+
+```r
+ne_countries <- sf::st_read(here::here("data", "basemap", "ne_countries.gpkg"))
+```
+
+
 ### References
 
 Spalding MD _et al._ (2007) Marine Ecoregions of the World: A Bioregionalization of Coastal and Shelf Areas. **BioScience**, 57(7), 573-583. DOI: <https://doi.org/10.1641/B570707>.

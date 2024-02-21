@@ -1,3 +1,0 @@
-## Figure description
-
-**{{ DESCRIBE FIGURES }}**

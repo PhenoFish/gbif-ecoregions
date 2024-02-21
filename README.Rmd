@@ -41,7 +41,8 @@ knitr::opts_chunk$set(collapse  = TRUE,
 
 This project is dedicated to retrieve, clean and check GBIF occurrences for all fish species of the World (n = 35,035 species). Occurrences are aggregated at the ecoregion level (Spalding _et al._, 2007) for marine species and at the drainage basin level (Tedesco _et al._, 2017) for freshwater species.
 
-
+![](figures/number_of_marine_fish_species.png)
+![](figures/number_of_freshwater_fish_species.png)
 
 ## Data sources
 

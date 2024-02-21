@@ -26,3 +26,53 @@ To import this dataset, use the following line in R:
 species_list <- readRDS(here::here("outputs", "phenofish_species_w_gbif_id.rds"))
 ```
 
+
+### `phenofish_species_marine_ecoregions.rds`
+
+A table containing the list of marine fish species per marine ecoregions obtained by intersecting GBIF occurrences and the MEOW spatial layer. It contains 17,205 species (column `gbif_key`) and 232 marine ecoregions (column `ECO_CODE`).
+
+This table was produced by the script [`analyses/intersect_gbif_occurrences.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/analyses/intersect_gbif_occurrences.R)
+
+To import this dataset, use the following line in R:
+
+```r
+species_ecoregions <- readRDS(here::here("outputs", "phenofish_species_marine_ecoregions.rds"))
+```
+
+
+### `phenofish_species_drainage_basins.rds`
+
+A table containing the list of freshwater fish species per drainage basins obtained by intersecting GBIF occurrences and the Basins spatial layer. It contains 10,493 species (column `gbif_key`) and 2,215 drainage basins (column `BasinName`).
+
+This table was produced by the script [`analyses/intersect_gbif_occurrences.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/analyses/intersect_gbif_occurrences.R)
+
+To import this dataset, use the following line in R:
+
+```r
+species_basins <- readRDS(here::here("outputs", "phenofish_species_drainage_basins.rds"))
+```
+
+
+### `phenofish_marine_richness.gpkg`
+
+A spatial layer containing the number of marine fish species (column `richness`) for each marine ecoregion (in rows). This spatial layer is defined in the WGS 84 system (`EPSG = 4326`)
+
+This layer was produced by the script [`analyses/compute_species_richness.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/analyses/compute_species_richness.R)
+
+To import this dataset, use the following line in R:
+
+```r
+marine_richness <- sf::st_read(here::here("outputs", "phenofish_marine_richness.gpkg"))
+```
+
+### `phenofish_freshwater_richness.gpkg`
+
+A spatial layer containing the number of freshwater fish species (column `richness`) for each drainage basin (in rows). This spatial layer is defined in the WGS 84 system (`EPSG = 4326`)
+
+This layer was produced by the script [`analyses/compute_species_richness.R`](https://github.com/phenofish/gbif-ecoregions/blob/main/analyses/compute_species_richness.R)
+
+To import this dataset, use the following line in R:
+
+```r
+freshwater_richness <- sf::st_read(here::here("outputs", "phenofish_freshwater_richness.gpkg"))
+```

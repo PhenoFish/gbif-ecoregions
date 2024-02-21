@@ -28,6 +28,9 @@ aggregated at the ecoregion level (Spalding *et al.*, 2007) for marine
 species and at the drainage basin level (Tedesco *et al.*, 2017) for
 freshwater species.
 
+![](figures/number_of_marine_fish_species.png)
+![](figures/number_of_freshwater_fish_species.png)
+
 ## Data sources
 
 This project uses the following databases:
