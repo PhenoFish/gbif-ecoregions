@@ -3,11 +3,16 @@
 #' @return A `ggplot` object.
 #' 
 #' @export
-#'
+#' @file
+#' @metric
 #' @examples
 #' ## ggmap_marine()
 
-ggmap_marine <- function() {
+ggmap_marine <- function(file,metric, title) {
+  
+  #title = "Number of marine fish species"
+  #file =
+  #metric =
   
   ## Read map data ----
   
@@ -27,7 +32,7 @@ ggmap_marine <- function() {
   ## Read richness data ----
   
   data_sf <- sf::st_read(here::here("outputs", 
-                                    "phenofish_marine_richness.gpkg"), 
+                                    file), 
                          quiet = TRUE)
 
   data_sf <- correct_meow(data_sf)
@@ -41,7 +46,7 @@ ggmap_marine <- function() {
     ggplot2::geom_sf(data = ne_graticules, col = "#bae2fb", 
                      linewidth = 0.10) +
     
-    ggplot2::geom_sf(data = data_sf, ggplot2::aes(fill = richness)) +
+    ggplot2::geom_sf(data = data_sf, ggplot2::aes(fill = metric)) +
     
     ggplot2::geom_sf(data = ne_countries, fill = "#c0c0c0", col = "#c9c9c9", 
                      linewidth = 0.10) +
@@ -54,7 +59,7 @@ ggmap_marine <- function() {
     ggplot2::theme(legend.position  = "bottom",
                    legend.key.width = ggplot2::unit(1.5, 'cm'),
                    legend.title = ggplot2::element_text(face = "bold")) +
-    ggplot2::labs(fill = "Number of marine fish species") + 
+    ggplot2::labs(fill = title) + 
     ggplot2::guides(fill = ggplot2::guide_colorbar(title.position = "top", 
                                                  title.hjust = 0.5))
     
