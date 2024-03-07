@@ -23,8 +23,8 @@
 #' ## ggmap_marine()
 
 ggmap_marine <- function(
-    file = here::here("outputs", "phenofish_marine_richness.gpkg"), 
-    metric = richness, 
+    file, 
+    metric, 
     title = "Number of marine fish species") {
   
   
@@ -32,6 +32,10 @@ ggmap_marine <- function(
   
   if (!is.character(file) && length(file) != 1) {
     stop("Argument 'file' must a character of length 1", call. = FALSE)
+  }
+  
+  if (!is.character(metric) && length(metric) != 1) {
+    stop("Argument 'metric' must a character of length 1", call. = FALSE)
   }
   
   if (!file.exists(file)) {
@@ -65,7 +69,7 @@ ggmap_marine <- function(
   ## Read user data ----
   
   data_sf <- sf::st_read(file, quiet = TRUE)
-
+  
   # if (!(metric %in% colnames(data_sf))) {
   #   stop("The column '", metric, "'is not found in '", file, "'", call. = FALSE)
   # }
@@ -86,11 +90,11 @@ ggmap_marine <- function(
     ggplot2::geom_sf(data = ne_graticules, col = "#bae2fb", 
                      linewidth = 0.10) +
     
-    ggplot2::geom_sf(data = data_sf, ggplot2::aes(fill = {{ metric }})) +
+    ggplot2::geom_sf(data = data_sf, ggplot2::aes_string(fill =  metric )) +
     
     ggplot2::geom_sf(data = ne_countries, fill = "#c0c0c0", col = "#c9c9c9", 
                      linewidth = 0.10) +
-  
+    
     ggplot2::geom_sf(data = ne_poles, fill = "white", col = "white") +
     ggplot2::geom_sf(data = ne_bbox, fill = NA, col = "#a6a6a6", 
                      linewidth = 0.75) +
