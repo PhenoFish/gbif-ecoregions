@@ -23,15 +23,19 @@
 #' ## ggmap_freshwater()
 
 ggmap_freshwater <- function(
-    file = here::here("outputs", "phenofish_freshwater_richness.gpkg"), 
-    metric = richness, 
-    title = "Number of freshwater fish species") {
+    file, 
+    metric, 
+    title) {
   
   
   ## Check args ----
   
   if (!is.character(file) && length(file) != 1) {
     stop("Argument 'file' must a character of length 1", call. = FALSE)
+  }
+  
+  if (!is.character(metric) && length(metric) != 1) {
+    stop("Argument 'metric' must a character of length 1", call. = FALSE)
   }
   
   if (!file.exists(file)) {
@@ -87,7 +91,7 @@ ggmap_freshwater <- function(
     ggplot2::geom_sf(data = ne_bbox, fill = NA, col = "#a6a6a6", 
                      linewidth = 0.10) +
     
-    ggplot2::geom_sf(data = data_sf, ggplot2::aes(fill = {{ metric }})) +
+    ggplot2::geom_sf(data = data_sf, ggplot2::aes_string(fill =  metric )) +
     
     ggplot2::theme_void() +
     ggplot2::theme(legend.position  = "bottom",

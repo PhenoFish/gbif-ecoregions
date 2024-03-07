@@ -25,7 +25,7 @@
 ggmap_marine <- function(
     file, 
     metric, 
-    title = "Number of marine fish species") {
+    title) {
   
   
   ## Check args ----
