@@ -8,7 +8,7 @@
 #' @param file a `character` of length 1. The relative path to the spatial 
 #'   object to read. Default is `outputs/phenofish_freshwater_richness.gpkg`.
 #' 
-#' @param metric the column in `file` to map. The name of the column be 
+#' @param metric the column in `file` to map. The name of the column must be 
 #'   unquoted (`metric = richness` and not `metric = "richness"`).
 #'   Default is `richness`.
 #' 
