@@ -25,7 +25,8 @@
 ggmap_freshwater <- function(
     file, 
     metric, 
-    title) {
+    title,
+    mypalette) {
   
   
   ## Check args ----
@@ -91,7 +92,9 @@ ggmap_freshwater <- function(
     ggplot2::geom_sf(data = ne_bbox, fill = NA, col = "#a6a6a6", 
                      linewidth = 0.10) +
     
-    ggplot2::geom_sf(data = data_sf, ggplot2::aes_string(fill =  metric )) +
+    ggplot2::geom_sf(data = data_sf, ggplot2::aes_string(fill =  metric ))+
+    ggplot2::scale_fill_gradientn(colours=mypalette,
+                                  na.value = "grey100")
     
     ggplot2::theme_void() +
     ggplot2::theme(legend.position  = "bottom",

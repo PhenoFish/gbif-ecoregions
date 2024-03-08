@@ -25,7 +25,8 @@
 ggmap_marine <- function(
     file, 
     metric, 
-    title) {
+    title,
+    mypalette) {
   
   
   ## Check args ----
@@ -91,6 +92,8 @@ ggmap_marine <- function(
                      linewidth = 0.10) +
     
     ggplot2::geom_sf(data = data_sf, ggplot2::aes_string(fill =  metric )) +
+    ggplot2::scale_fill_gradientn(colours=mypalette,
+                         na.value = "grey100") +
     
     ggplot2::geom_sf(data = ne_countries, fill = "#c0c0c0", col = "#c9c9c9", 
                      linewidth = 0.10) +
