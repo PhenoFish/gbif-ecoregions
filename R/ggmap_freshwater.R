@@ -94,7 +94,7 @@ ggmap_freshwater <- function(
     
     ggplot2::geom_sf(data = data_sf, ggplot2::aes_string(fill =  metric ))+
     ggplot2::scale_fill_gradientn(colours=mypalette,
-                                  na.value = "grey100")
+                                  na.value = "grey100") +
     
     ggplot2::theme_void() +
     ggplot2::theme(legend.position  = "bottom",
@@ -102,5 +102,5 @@ ggmap_freshwater <- function(
                    legend.title = ggplot2::element_text(face = "bold")) +
     ggplot2::labs(fill = title) + 
     ggplot2::guides(fill = ggplot2::guide_colorbar(title.position = "top", 
-                                                   title.hjust = 0.5))
+                                                  title.hjust = 0.5))
 }
