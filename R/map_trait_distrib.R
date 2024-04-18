@@ -31,15 +31,15 @@
 
 
 #'@traits_names if NULL all traits or names of a specic traits
-prep_map_traits <- function(data, ecosystem,trait_type, trait_name, mypalette, title, metric, taxa_scale){
+prep_map_traits <- function(data, ecosystem,trait_type, trait_name, mypalette, title, metric, taxo_scale){
   #pal =  viridis::viridis(n=100, option = "turbo")
   #data = test_phenofish
   #trait_type = NULL    #trait_type = "physiological"
   #trait_name = NULL    #trait_name = "head_depth"
   #ecosystem = "marine" #ecosystem = "freshwater"
   
-  if(!is.null(taxa_scale)){
-    data <- data[data$taxa_scale %in% taxa_scale,]
+  if(!is.null(taxo_scale)){
+    data <- data[data$taxo_scale %in% taxo_scale,]
   }
   
   if(!is.null(trait_type)){
@@ -146,14 +146,13 @@ prep_map_traits <- function(data, ecosystem,trait_type, trait_name, mypalette, t
   
   ## Map marine richness ----
   if(ecosystem == "marine" ){
-    map <- ggmap_marine(file =  here::here("outputs", "trait_marine_richness.gpkg"), 
+    map <- ggmap_marine(file =  here::here("outputs", "trait_marine_richness.gpkg" ), 
                         metric = metric, 
                         title = title,
                         mypalette = pal)
  
     ggplot2::ggsave(map, 
-                    filename = here::here("figures", 
-                                          "percentage_trait_marine_richness.png"),
+                    filename = here::here("figures", paste0(title,".png")),
                     width = 20, height = 13, units = "cm", dpi = 300, bg = "white")
   }
   
@@ -163,8 +162,7 @@ prep_map_traits <- function(data, ecosystem,trait_type, trait_name, mypalette, t
                             title = title,
                             mypalette = pal)
     ggplot2::ggsave(map, 
-                    filename = here::here("figures", 
-                                          "percentage_trait_freshwater_richness.png"),
+                    filename = here::here("figures", paste0(title,".png")),
                     width = 20, height = 13, units = "cm", dpi = 300, bg = "white")
   }
   

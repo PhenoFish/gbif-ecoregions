@@ -38,3 +38,21 @@ source(here::here("analyses", "download_gbif_occurrences.R"))
 source(here::here("analyses", "clean_gbif_occurrences.R"))
 source(here::here("analyses", "intersect_gbif_occurrences_marine.R"))
 source(here::here("analyses", "compute_species_richness.R"))
+
+
+## Run plot for phenofish ----
+
+prep_map_traits(data = test_phenofish, 
+                            ecosystem = "marine",
+                            trait_type = "morphological", 
+                            trait_name = NULL, 
+                            mypalette = viridis::viridis(n=100, option = "turbo"), 
+                            title = "Richness_morphological_traits_intra", 
+                            metric = "richness",
+                            taxo_scale = "individual")
+  #pal =  
+  #data = test_phenofish
+  #trait_type = NULL    #trait_type = "physiological"
+  #trait_name = NULL    #trait_name = "head_depth"
+  #ecosystem = "marine" #ecosystem = "freshwater"
+  
