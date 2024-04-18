@@ -48,7 +48,7 @@ prep_map_traits(data = test_phenofish,
                             trait_name = NULL, 
                             mypalette = viridis::viridis(n=100, option = "turbo"), 
                             title = "Richness_morphological_traits_intra", 
-                            metric = "richness",
+                            metric = "trait_richness",
                             taxo_scale = "individual")
   #pal =  
   #data = test_phenofish
