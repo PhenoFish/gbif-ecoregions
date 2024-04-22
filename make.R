@@ -41,6 +41,9 @@ source(here::here("analyses", "compute_species_richness.R"))
 
 
 ## Run plot for phenofish ----
+load("~/Documents/CNRS/PHENOFISH/Data_management/git_organisation/betaFish/outputs/test_phenofish.RData")
+
+phenofish_species_w_gbif_id <- readRDS(here::here("outputs/phenofish_species_w_gbif_id.rds"))
 
 prep_map_traits(data = test_phenofish, 
                             ecosystem = "marine",

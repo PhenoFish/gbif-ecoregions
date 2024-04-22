@@ -149,7 +149,7 @@ prep_map_traits <- function(data, ecosystem,trait_type, trait_name, mypalette, t
     map <- ggmap_marine(file =  here::here("outputs", "trait_marine_richness.gpkg" ), 
                         metric = metric, 
                         title = title,
-                        mypalette = pal)
+                        mypalette = mypalette)
  
     ggplot2::ggsave(map, 
                     filename = here::here("figures", paste0(title,".png")),
@@ -160,7 +160,7 @@ prep_map_traits <- function(data, ecosystem,trait_type, trait_name, mypalette, t
     map <- ggmap_freshwater(file =  here::here("outputs", "trait_freshwater_richness.gpkg"), 
                             metric = metric, 
                             title = title,
-                            mypalette = pal)
+                            mypalette = mypalette)
     ggplot2::ggsave(map, 
                     filename = here::here("figures", paste0(title,".png")),
                     width = 20, height = 13, units = "cm", dpi = 300, bg = "white")
