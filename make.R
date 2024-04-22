@@ -101,6 +101,15 @@ prep_map_traits(data = test_phenofish,
                 taxo_scale = NULL)
 
 
+prep_map_traits(data = test_phenofish, 
+                ecosystem = "marine",
+                trait_type = NULL, 
+                trait_name = NULL, 
+                mypalette = viridis::viridis(n=100, option = "turbo"), 
+                title = "number_of_marine_fish_species", 
+                metric = "richness",
+                taxo_scale = NULL)
+
 
 
   #pal =  
