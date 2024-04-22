@@ -47,9 +47,59 @@ prep_map_traits(data = test_phenofish,
                             trait_type = "morphological", 
                             trait_name = NULL, 
                             mypalette = viridis::viridis(n=100, option = "turbo"), 
-                            title = "Richness_morphological_traits_intra", 
+                            title = "Number of species with at least one individual morphological traits", 
                             metric = "trait_richness",
                             taxo_scale = "individual")
+
+prep_map_traits(data = test_phenofish, 
+                ecosystem = "marine",
+                trait_type = NULL, 
+                trait_name = "tmax", 
+                mypalette = viridis::viridis(n=100, option = "turbo"), 
+                title = "Number of marine sp with Tmax value", 
+                metric = "trait_richness",
+                taxo_scale = NULL)
+
+prep_map_traits(data = test_phenofish, 
+                ecosystem = "freshwater",
+                trait_type = NULL, 
+                trait_name = "tmax", 
+                mypalette = viridis::viridis(n=100, option = "turbo"), 
+                title = "Number of freshwater sp with Tmax value", 
+                metric = "trait_richness",
+                taxo_scale = NULL)
+
+
+prep_map_traits(data = test_phenofish, 
+                ecosystem = "marine",
+                trait_type = NULL, 
+                trait_name = "tmax", 
+                mypalette = viridis::viridis(n=100, option = "turbo"), 
+                title = "Percentage of marine sp with Tmax value", 
+                metric = "percentage",
+                taxo_scale = NULL)
+
+prep_map_traits(data = test_phenofish, 
+                ecosystem = "freshwater",
+                trait_type = NULL, 
+                trait_name = "tmax", 
+                mypalette = viridis::viridis(n=100, option = "turbo"), 
+                title = "Percentage of freshwater sp with Tmax value", 
+                metric = "percentage",
+                taxo_scale = NULL)
+
+prep_map_traits(data = test_phenofish, 
+                ecosystem = "freshwater",
+                trait_type = NULL, 
+                trait_name = "excreted_n_p", 
+                mypalette = viridis::viridis(n=100, option = "turbo"), 
+                title = "Number of freshwater sp with excreted_n_p at individual", 
+                metric = "trait_richness",
+                taxo_scale = NULL)
+
+
+
+
   #pal =  
   #data = test_phenofish
   #trait_type = NULL    #trait_type = "physiological"
