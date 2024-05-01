@@ -32,10 +32,10 @@
 
 #'@traits_names if NULL all traits or names of a specic traits
 prep_map_traits <- function(data, ecosystem,trait_type, trait_name, mypalette, title, metric, taxo_scale){
-  #pal =  viridis::viridis(n=100, option = "turbo")
+  #mypalette =  viridis::viridis(n=100, option = "turbo")
   #data = test_phenofish
   #trait_type = NULL    #trait_type = "physiological"
-  #trait_name = NULL    #trait_name = "head_depth"
+  #trait_name = NULL    #trait_name = "max_metabolic_rate"
   #ecosystem = "marine" #ecosystem = "freshwater"
   
   if(!is.null(taxo_scale)){
@@ -71,11 +71,13 @@ prep_map_traits <- function(data, ecosystem,trait_type, trait_name, mypalette, t
     
     data$phenofish_name <- gsub(" ","_",data$phenofish_name)
     
+    phenofish_species_w_gbif_id$fishbase_name <- tolower(phenofish_species_w_gbif_id$fishbase_name)
+    
     data <- unique(data[,c("phenofish_name","worms_id")])
     
     species_ecoregions <- merge(phenofish_species_w_gbif_id,species_ecoregions, by = "gbif_key", all = T)
     
-    traits_ecoregions <- merge(species_ecoregions,data,by.x = "fishbase_name", by.y ="phenofish_name",all.y = T)
+    traits_ecoregions <- merge(species_ecoregions,data,by.x = "fishbase_name", by.y ="phenofish_name", all.y = T)
     
     traits_richness <- tapply(traits_ecoregions$"gbif_key", 
                               traits_ecoregions$"ECO_CODE", 
